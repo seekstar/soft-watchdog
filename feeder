@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ ! $2 ]; then
+	echo Usage: $0 host-name interval
+	exit
+fi
+
+while true; do
+	sleep $2
+	ssh $1 "touch ~/.soft-watchdog-food"
+done

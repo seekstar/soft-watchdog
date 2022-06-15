@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ ! $3 ]; then
+	echo Usage: $0 food_path interval max-miss-cnt
+	exit
+fi
+
+misscnt=0
+while true; do
+	sleep $2
+	if [ -f "$1" ]; then
+		misscnt=0
+		rm "$1"
+		continue
+	fi
+	misscnt=$(($misscnt+1))
+	echo $(date)
+	echo $misscnt
+	if [[ $misscnt > $3 ]]; then
+		reboot
+	fi
+done
