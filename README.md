@@ -21,3 +21,7 @@ The feeder can also be run manually:
 ```shell
 ./feeder ssh-name-of-watched-host interval
 ```
+
+## LICENSE
+
+This software is licensed under GPL version 3 or any later version.
