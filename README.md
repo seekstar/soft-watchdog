@@ -15,3 +15,9 @@ On another host that is going to be a feeder:
 ```shell
 ./deploy-feeder.sh ssh-name-of-watched-host
 ```
+
+The feeder can also be run manually:
+
+```shell
+./feeder ssh-name-of-watched-host interval
+```
