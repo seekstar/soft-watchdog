@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-if [ ! $2 ]; then
+if [ $# != 2 ]; then
 	echo Usage: $0 host-name interval
 	exit
 fi
 
 while true; do
+	if ping -c 1 $1; then
+		touch ~/.soft-watchdog-food
+	fi
 	sleep $2
-	ssh $1 "touch ~/.soft-watchdog-food"
 done
