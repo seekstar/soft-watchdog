@@ -13,7 +13,9 @@ By default, the feeder feeds every 60 seconds, and the watchdog eats the food ev
 Deploy watchdog on the watched host:
 
 ```shell
-./deploy-soft-watchdog.sh
+# interval: In seconds. Default: 60
+# max_miss_cnt: The watchdog reboots the host if it finds that ~/soft-watchdog-food is missing for continuously <max_miss_cnt> times. Default: 3.
+./deploy-soft-watchdog.sh [interval] [max_miss_cnt]
 ```
 
 ### Feeder
@@ -28,7 +30,8 @@ Deploy on a feeder host:
 
 ```shell
 cd feeders/ssh/
-./deploy-feeder.sh ssh-name-of-watched-host
+# interval: In seconds. Default: 60
+./deploy-feeder.sh ssh-name-of-watched-host [interval]
 ```
 
 The feeder can also be run manually:
@@ -45,7 +48,8 @@ Deploy on a feeder host:
 
 ```shell
 cd feeders/ping/
-./deploy-feeder.sh host-to-ping(e.g., baidu.com)
+# interval: In seconds. Default: 60
+./deploy-feeder.sh host-to-ping(e.g., baidu.com) [interval]
 ```
 
 The feeder can also be run manually:
